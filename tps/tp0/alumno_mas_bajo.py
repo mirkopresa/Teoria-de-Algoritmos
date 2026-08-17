@@ -26,20 +26,3 @@ def validar_mas_bajo(alumnos: list[Alumno], indice: int) -> bool:
         if alumnos[indice - 1].altura > alumnos[indice].altura:
             return True
     return False
-
-
-# 1.2, 1.15, 1.14, 1.12, 1.02, 0.98, 1.18, 1.23
-alumnos: list[Alumno] = [
-    Alumno("Alumno 1", 1.2),
-    Alumno("Alumno 2", 1.15),
-    Alumno("Alumno 3", 1.14),
-    Alumno("Alumno 4", 1.12),
-    Alumno("Alumno 5", 1.02),
-    Alumno("Alumno 6", 0.98),
-    Alumno("Alumno 7", 1.18),
-    Alumno("Alumno 8", 1.23),
-]
-
-print(indice_mas_bajo(alumnos))
-print(validar_mas_bajo(alumnos, 4))
-print(validar_mas_bajo(alumnos, 5))
