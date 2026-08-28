@@ -10,7 +10,7 @@
 # Esta nos permite encontrar un optimo local, y repitiendola varias veces, llegamos a un optimo global
 # Es un algoritmo greedy al utilizar esta regla, nos fijamos en el estado actual y siguiendo esta regla
 # tomamos una decision una y otra vez
-def charlas(horarios: list[tuple[int, int]]):
+def charlas(horarios: list[tuple[int, int]]) -> list[tuple[int, int]]:
     resultado = []
     ordenado = ordenar_charlas(
         horarios
@@ -26,7 +26,7 @@ def interseccion(charla_dada: tuple[int, int], charla_a_dar: tuple[int, int]) ->
     return charla_a_dar[0] < charla_dada[1]
 
 
-def ordenar_charlas(horarios: list[tuple[int, int]]):
+def ordenar_charlas(horarios: list[tuple[int, int]]) -> list[tuple[int, int]]:
     if len(horarios) <= 1:
         return horarios
     mitad = len(horarios) // 2
@@ -35,7 +35,9 @@ def ordenar_charlas(horarios: list[tuple[int, int]]):
     return merge(mitad_izq, mitad_der)
 
 
-def merge(mitad_izq: list[tuple[int, int]], mitad_der: list[tuple[int, int]]):
+def merge(
+    mitad_izq: list[tuple[int, int]], mitad_der: list[tuple[int, int]]
+) -> list[tuple[int, int]]:
     resultado = []
     i, j = 0, 0
     while i < len(mitad_izq) and j < len(mitad_der):

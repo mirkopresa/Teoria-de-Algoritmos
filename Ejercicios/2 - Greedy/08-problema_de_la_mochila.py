@@ -25,7 +25,7 @@ import heapq
 
 # Cada elemento i de la forma (valor, peso)
 # Complejidad: O(n log n), siendo n la cantidad de elementos a evaluar
-def mochila(elementos: list[tuple[int, int]], W: int):
+def mochila(elementos: list[tuple[int, int]], W: int) -> list[tuple[int, int]]:
     resultado = []
     peso_actual = 0
     promedios = obtener_promedios(elementos)
