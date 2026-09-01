@@ -8,6 +8,16 @@
 # El algoritmo implementado encuentra siempre la solución óptima? Justificar.
 # ¿Por qué se trata de un algoritmo Greedy? Justificar
 
+# Regla greedy: ordenar de menor a mayor, y obtener el producto mas barato
+
+# Optimo local: obtener el producto del dia j
+
+# Optimo global: minimizar el costo final
+
+# Siempre encuentra la solucion optima para este caso, al ordenar de menor a mayor y obtener el producto mas barato todos
+# los dias, los productos mas caros van disminuyendo su precio y da igual si todos los productos tienen el mismo precio
+# o si son miles de productos con precios diferentes
+
 
 def precios_deflacion(R: list[float]) -> float:
     monto = 0

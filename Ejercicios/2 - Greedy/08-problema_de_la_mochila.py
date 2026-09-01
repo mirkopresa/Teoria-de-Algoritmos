@@ -9,18 +9,17 @@
 
 import heapq
 
-# Regla basica: obtenemos la relacion valor/peso de cada elemento, y lo ordenamos/encolamos en un heap
-# Esto nos permite guardar los mejores elementos en base a la relacion valor/peso (optimo local), fijandonos en cada
-# paso el estado actual de la mochila, es decir, que no este llena
-# Repetimos varias veces hasta llenar la mochila o recorrer todos los elementos para llegar a un optimo global
+# Regla greedy: obtener el elemento que maximice el valor/peso
 
-# Va a encontrar la solucion optima siempre y cuando los valores sean positivos > 0
-# Si no, ejemplo de valores menores o iguales a 0, tenemos elementos que nos van a sumar peso y nos van a restar valor,
-# mientras la mochila tenga espacio, ya que estos elementos estaran al final, y
-# el algoritmo los podria agarrar y guardar como resultado, restandonos valor
-# Tambien, los pesos tienen que ser < a 0, porque sino tendriamos un problema al calcular el promedio en el caso de que el peso sea 0
-# y en el caso de que no, al estar ordenado de mayor a menor, estos elementos que nos restan peso de la mochila y nos dan valor, nos
-# quedan al final y pueden no ser incluidos
+# Optimo local: elegir el elemento con el ratio mas alto sin superar la capacidad de la mochila
+
+# No, no encuentra la solucion optima siempre
+# Contraejemplo:
+# Mochila con capacidad 10, y tenemos elementos [(3, 1), (10, 10)]
+# Relacion peso de cada una: [3, 1]
+# Al ordenar de mayor a menor, o desencolar de un heap, guardaremos el elemento que tiene
+# (3, 1) con relacion de peso 3, y ya no nos quedara espacio para el elemento de (10, 10)
+# que era el que maximizaba el valor de los elementos
 
 
 # Cada elemento i de la forma (valor, peso)

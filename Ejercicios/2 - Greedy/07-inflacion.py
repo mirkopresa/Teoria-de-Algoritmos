@@ -8,13 +8,15 @@
 
 
 # Complejidad: O(n log n) al ordenar de mayor a menor
-# Regla basica: ordenamos de mayor a menor, para cada dia comprar el producto mas caro
-# ya que estos son los que mas aumentarian a futuro (optimo local)
-# Repetir esto varias veces nos permite llegar al optimo global (en este caso)
 
-# Siempre encuentra la solucion optima mientras todos los productos tengan un precio > 1,
-# Caso negativo: el producto ira alternando entre precio negativo y positivo
-# Caso entre 0 y 1: el producto reducira cada vez mas su precio o se mantendra igual
+# Regla greedy: ordenar de mayor a menor, y obtener el producto mas caro
+
+# Optimo local: elegir el producto del dia j
+
+# Optimo global: minimizar el costo final)
+
+# Siempre encuentra la solucion optima para este caso, da igual si todos los productos tienen el mismo precio
+# o si son miles de productos con precios diferentes
 
 
 def precios_inflacion(R: list[int]) -> int:

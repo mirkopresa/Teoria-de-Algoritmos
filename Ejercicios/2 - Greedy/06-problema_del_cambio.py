@@ -9,15 +9,17 @@
 
 
 # O(n), siendo n la cantidad de monedas/billetes a devolver
-# Regla basica: recorriendo el arreglo de monedas, de mayor a menor, voy probando si la moneda actual sobrepasa el
-# monto actual a devolver. Si lo hace, pasamos a la proxima de mayor denominacion.
-# Si no lo hace, esa moneda nos sirve y la guardamos (optimo local), y actualizamos el estado actual (el monto)
-# Repitiendo esta regla nos permite llegar a un optimo global (en el caso de nuestro sistema monetario)
+
+# Regla greedy: Usar la moneda de mayor denominacion que no supere el monto actual
+
+# Optimo local: La moneda que vamos a usar en el estado actual
+
+# Optimo global: Minimizar la cantidad de monedas utilizadas
 
 # El algoritmo siempre encuentra la solucion optima en ciertos tipos de sistemas monetarios, en otros
 # no lo va a hacer, entonces es optimo para este caso, pero en general puede no serlo.
 
-# Ejemplo:
+# Contraejemplo:
 # Monedas: [1, 7, 8, 9] - Monto a devolver: 15
 # El algoritmo nos devolveria [9, 1, 1, 1, 1, 1, 1], cuando la mejor solucion es [8, 7]
 
