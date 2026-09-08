@@ -4,20 +4,22 @@
 
 def camino_hamiltoniano(grafo) -> list:
     for v in grafo:
-        solucion = hamiltoniano_rec(grafo, v, set())
+        solucion = hamiltoniano_rec(grafo, v, [], set())
         if solucion is not None:
             return solucion
     return []
 
 
-def hamiltoniano_rec(grafo, v_actual, visitados: set) -> list | None:
+def hamiltoniano_rec(grafo, v_actual, camino: list, visitados: set) -> list | None:
     visitados.add(v_actual)
+    camino.append(v_actual)
     if len(visitados) == len(grafo):
-        return list(visitados)
+        return camino
     for w in grafo.adyacentes(v_actual):
         if w not in visitados:
-            res = hamiltoniano_rec(grafo, w, visitados)
+            res = hamiltoniano_rec(grafo, w, camino, visitados)
             if res is not None:
                 return res
     visitados.remove(v_actual)
+    camino.pop()
     return None

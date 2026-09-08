@@ -23,7 +23,7 @@ def sumatorias_rec(
         if lista[indice] + suma_parcial == n:
             soluciones.append(resultado[:])
         suma_parcial += lista[indice]
-        _ = sumatorias_rec(lista, n, indice + 1, soluciones, (resultado, suma_parcial))
+        sumatorias_rec(lista, n, indice + 1, soluciones, (resultado, suma_parcial))
         resultado.pop()
         suma_parcial -= lista[indice]
     return sumatorias_rec(lista, n, indice + 1, soluciones, (resultado, suma_parcial))
