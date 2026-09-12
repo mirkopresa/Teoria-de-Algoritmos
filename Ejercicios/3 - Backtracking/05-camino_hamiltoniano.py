@@ -10,7 +10,7 @@ def camino_hamiltoniano(grafo) -> list:
     return []
 
 
-def hamiltoniano_rec(grafo, v_actual, camino: list, visitados: set) -> list | None:
+def hamiltoniano_rec(grafo, v_actual: int, camino: list, visitados: set) -> list | None:
     visitados.add(v_actual)
     camino.append(v_actual)
     if len(visitados) == len(grafo):

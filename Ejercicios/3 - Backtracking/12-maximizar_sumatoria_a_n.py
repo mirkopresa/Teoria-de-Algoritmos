@@ -8,15 +8,9 @@ def max_sumatoria_n(lista: list[int], n: int) -> list[int]:
     return solucion
 
 
-def sumatoria_rec(
-    lista: list[int],
-    n: int,
-    indice: int,
-    solucion: tuple[list[int], int],
-    solucion_optima: tuple[list[int], int],
-) -> tuple[list[int], int]:
+def sumatoria_rec(lista: list[int], n: int, indice: int, solucion: tuple[list[int], int], solucion_optima: tuple[list[int], int]) -> tuple[list[int], int]:
     sol_parcial, suma_parcial = solucion
-    sol_optima, suma_optima = solucion_optima
+    _, suma_optima = solucion_optima
     if suma_parcial > suma_optima:
         solucion_optima = (sol_parcial[:], suma_parcial)
     if indice == len(lista):
@@ -38,9 +32,7 @@ def sumatoria_rec(
         )
         sol_parcial.pop()
         suma_parcial -= lista[indice]
-    return sumatoria_rec(
-        lista, n, indice + 1, (sol_parcial, suma_parcial), solucion_optima
-    )
+    return sumatoria_rec(lista, n, indice + 1, (sol_parcial, suma_parcial), solucion_optima)
 
 
 print(max_sumatoria_n([1, 2, 20, 4, 1, 9, 4, 7, 1, 20], 10))

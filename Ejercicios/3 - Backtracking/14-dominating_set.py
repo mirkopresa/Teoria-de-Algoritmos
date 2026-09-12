@@ -7,24 +7,10 @@
 
 
 def dominating_set_min(grafo) -> list:
-    return dominating_rec(
-        grafo,
-        grafo.obtener_vertices(),
-        0,
-        [],
-        set(grafo.obtener_vertices()),
-        grafo.obtener_vertices(),
-    )
+    return dominating_rec(grafo, grafo.obtener_vertices(), 0, [], set(grafo.obtener_vertices()), grafo.obtener_vertices())
 
 
-def dominating_rec(
-    grafo,
-    vertices: list,
-    indice: int,
-    solucion: list,
-    vertices_no_cubiertos: set,
-    solucion_optima: list,
-) -> list:
+def dominating_rec(grafo, vertices: list, indice: int, solucion: list, vertices_no_cubiertos: set, solucion_optima: list) -> list:
     # Poda
     if len(solucion) >= len(solucion_optima):
         return solucion_optima
@@ -45,13 +31,9 @@ def dominating_rec(
             vertices_no_cubiertos.remove(w)
             cubiertos.append(w)
     solucion.append(v_actual)
-    solucion_optima = dominating_rec(
-        grafo, vertices, indice + 1, solucion, vertices_no_cubiertos, solucion_optima
-    )
+    solucion_optima = dominating_rec(grafo, vertices, indice + 1, solucion, vertices_no_cubiertos, solucion_optima)
     # Caso 2 - No lo tenemos en cuenta
     for u in cubiertos:
         vertices_no_cubiertos.add(u)
     solucion.pop()
-    return dominating_rec(
-        grafo, vertices, indice + 1, solucion, vertices_no_cubiertos, solucion_optima
-    )
+    return dominating_rec(grafo, vertices, indice + 1, solucion, vertices_no_cubiertos, solucion_optima)

@@ -6,7 +6,7 @@ def no_adyacentes(grafo, n: int) -> list | None:
     return no_adyacentes_recursivo(grafo, n, grafo.obtener_vertices(), 0, [])
 
 
-def no_adyacentes_recursivo(grafo, n: int, vertices, indice, camino) -> list | None:
+def no_adyacentes_recursivo(grafo, n: int, vertices: list, indice: int, camino: list) -> list | None:
     if len(camino) == n:
         return camino[:]
     if indice == len(grafo) or no_alcanza(indice, vertices, n):
@@ -21,12 +21,12 @@ def no_adyacentes_recursivo(grafo, n: int, vertices, indice, camino) -> list | N
     return no_adyacentes_recursivo(grafo, n, vertices, indice + 1, camino)
 
 
-def es_compatible(grafo, v, camino):
+def es_compatible(grafo, v: int, camino: list) -> bool:
     for w in camino:
         if grafo.estan_unidos(v, w):
             return False
     return True
 
 
-def no_alcanza(indice, vertices, n):
+def no_alcanza(indice: int, vertices: list, n: int) -> bool:
     return len(vertices) - indice < n

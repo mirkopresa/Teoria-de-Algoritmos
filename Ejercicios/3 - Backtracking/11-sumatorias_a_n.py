@@ -6,13 +6,7 @@ def sumatorias_n(lista: list[int], n: int) -> list[list[int]]:
     return sumatorias_rec(lista, n, 0, [], ([], 0))
 
 
-def sumatorias_rec(
-    lista: list[int],
-    n: int,
-    indice: int,
-    soluciones: list[list[int]],
-    solucion: tuple[list[int], int],
-) -> list[list[int]]:
+def sumatorias_rec(lista: list[int], n: int, indice: int, soluciones: list[list[int]], solucion: tuple[list[int], int]) -> list[list[int]]:
     if indice == len(lista):
         return soluciones
 
@@ -27,6 +21,3 @@ def sumatorias_rec(
         resultado.pop()
         suma_parcial -= lista[indice]
     return sumatorias_rec(lista, n, indice + 1, soluciones, (resultado, suma_parcial))
-
-
-print(sumatorias_n([1, 2, 3, 4, 5], 6))

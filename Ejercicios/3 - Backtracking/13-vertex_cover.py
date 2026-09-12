@@ -4,7 +4,7 @@
 # Implementar un algoritmo que dado un Grafo no dirigido nos devuelva un conjunto de vértices que representen un mínimo Vertex Cover del mismo.
 
 
-def vertex_cover_min(grafo):
+def vertex_cover_min(grafo) -> list:
     vertices_independientes = set(independent_set(grafo))
     resultado = []
     for v in grafo:
@@ -13,7 +13,7 @@ def vertex_cover_min(grafo):
     return resultado
 
 
-def independent_set(grafo):
+def independent_set(grafo) -> list:
     return independent_set_rec(grafo, grafo.obtener_vertices(), 0, [])
 
 
@@ -30,7 +30,7 @@ def independent_set_rec(grafo, vertices: list, indice: int, camino: list) -> lis
     return res1 if len(res1) > len(res2) else res2
 
 
-def es_compatible(grafo, v, camino):
+def es_compatible(grafo, v, camino: list) -> bool:
     for w in camino:
         if grafo.estan_unidos(v, w):
             return False
