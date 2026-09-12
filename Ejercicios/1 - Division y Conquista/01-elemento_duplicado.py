@@ -16,7 +16,7 @@ def duplicado_recursivo(arr: list[int], inicio: int, fin: int) -> int | None:
     mitad = (inicio + fin) // 2
     if arr[mitad] == arr[mitad + 1]:
         return arr[mitad]
-    mitadIzq = duplicado_recursivo(arr, inicio, mitad)
-    if mitadIzq == None:
+    mitad_izq = duplicado_recursivo(arr, inicio, mitad)
+    if mitad_izq is None:
         return duplicado_recursivo(arr, mitad + 1, fin)
-    return mitadIzq
+    return mitad_izq

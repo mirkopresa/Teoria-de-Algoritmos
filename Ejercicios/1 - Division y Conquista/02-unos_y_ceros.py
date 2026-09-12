@@ -16,5 +16,4 @@ def indice_recursivo(arr: list[int], inicio: int, fin: int) -> int:
     mitad = (inicio + fin) // 2
     if arr[mitad] == 1:
         return indice_recursivo(arr, mitad + 1, fin)
-    else:
-        return indice_recursivo(arr, inicio, mitad)
+    return indice_recursivo(arr, inicio, mitad)

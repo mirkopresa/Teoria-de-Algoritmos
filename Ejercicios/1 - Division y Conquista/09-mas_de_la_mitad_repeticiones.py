@@ -8,7 +8,7 @@
 
 
 def mas_de_la_mitad(arr: list[int]) -> bool:
-    return dividir(arr) != None
+    return dividir(arr) is not None
 
 
 def dividir(arr: list[int]) -> int | None:
@@ -31,9 +31,6 @@ def contar(arr: list[int], ganador_izq: int, ganador_der: int) -> int | None:
     mitad = len(arr) // 2
     if contador_1 > mitad:
         return ganador_izq
-    elif contador_2 > mitad:
+    if contador_2 > mitad:
         return ganador_der
     return None
-
-
-print(mas_de_la_mitad([1, 2, 3, 1]))

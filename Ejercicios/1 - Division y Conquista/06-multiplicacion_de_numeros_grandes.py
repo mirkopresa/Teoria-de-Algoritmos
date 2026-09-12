@@ -2,10 +2,12 @@
 # con un orden de complejidad mejor que O(n^2)
 # Justificar la complejidad del algoritmo mediante el teorema maestro.
 
+MIN = 50
 
-def multiplicar(a, b):
+
+def multiplicar(a: int, b: int) -> int:
     n = obtener_longitud(a)
-    if n < 50:
+    if n < MIN:
         return a * b
     a1, a0 = separar(a)
     b1, b0 = separar(b)
@@ -15,7 +17,7 @@ def multiplicar(a, b):
     return a1b1 * 10**n + (p - a0b0 - a1b1) * 10 ** (n // 2) + a0b0
 
 
-def separar(n) -> tuple:
+def separar(n: int) -> tuple[int, int]:
     n1, n0 = n, 0
     potencia = 1
     for _ in range(obtener_longitud(n) // 2):
@@ -25,8 +27,5 @@ def separar(n) -> tuple:
     return n1, n0
 
 
-def obtener_longitud(n) -> int:
+def obtener_longitud(n: int) -> int:
     return len(str(n))
-
-
-print(multiplicar(1000, 1000))

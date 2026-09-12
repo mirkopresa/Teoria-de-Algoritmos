@@ -8,14 +8,13 @@ def parte_entera_raiz(n: int) -> int:
 
 
 # A = 1, B = 2, C = 0 -> log en base 2 de 1 = 0, 0 = C, O(log n)
-def raiz_recursivo(num: int, min: int, max: int) -> int:
-    if min > max:
-        return max
-    mitad = (min + max) // 2
+def raiz_recursivo(num: int, minimo: int, maximo: int) -> int:
+    if minimo > maximo:
+        return maximo
+    mitad = (minimo + maximo) // 2
     cuadrado = mitad * mitad
     if cuadrado == num:
         return mitad
-    elif cuadrado < num:
-        return raiz_recursivo(num, mitad + 1, max)
-    else:
-        return raiz_recursivo(num, min, mitad - 1)
+    if cuadrado < num:
+        return raiz_recursivo(num, mitad + 1, maximo)
+    return raiz_recursivo(num, minimo, mitad - 1)

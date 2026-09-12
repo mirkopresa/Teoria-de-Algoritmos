@@ -22,10 +22,9 @@ def max_subarray(arr: list[int]) -> list[int]:
     suma_max_cruzado = sum(cruzado)
     if suma_max_izq > suma_max_der and suma_max_izq > suma_max_cruzado:
         return mitad_izq
-    elif suma_max_der > suma_max_izq and suma_max_der > suma_max_cruzado:
+    if suma_max_der > suma_max_izq and suma_max_der > suma_max_cruzado:
         return mitad_der
-    else:
-        return cruzado
+    return cruzado
 
 
 def obtener_subarreglo_cruzado(arr: list[int]) -> list[int]:

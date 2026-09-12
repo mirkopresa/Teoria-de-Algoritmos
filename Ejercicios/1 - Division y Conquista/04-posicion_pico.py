@@ -16,5 +16,4 @@ def posicion_pico(v: list[int], ini: int, fin: int) -> int:
     mitad = (ini + fin) // 2
     if v[mitad] > v[mitad + 1]:
         return posicion_pico(v, ini, mitad)
-    else:
-        return posicion_pico(v, mitad + 1, fin)
+    return posicion_pico(v, mitad + 1, fin)
