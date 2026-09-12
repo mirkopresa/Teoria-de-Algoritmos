@@ -16,17 +16,14 @@
 
 
 # Complejidad: O(n log n)
-def cobertura(casas: list[int], R: int, K: int) -> list[int]:
+def cobertura(casas: list[int], r: int, k: int) -> list[int]:
     resultado = []
     ordenados = sorted(casas)
     i = 0
     while i < len(ordenados):
-        if ordenados[i] + R <= K:
-            posicion_antena = ordenados[i] + R
-        else:
-            posicion_antena = K
+        posicion_antena = min(ordenados[i] + r, k)
         resultado.append(posicion_antena)
 
-        while i < len(ordenados) and posicion_antena + R - ordenados[i] >= 0:
+        while i < len(ordenados) and posicion_antena + r - ordenados[i] >= 0:
             i += 1
     return resultado

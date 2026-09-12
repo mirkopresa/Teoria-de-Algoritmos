@@ -31,5 +31,5 @@ def asignar_mafias(pedidos: list[tuple[int, int]]) -> list[tuple[int, int]]:
     return resultado
 
 
-def hay_interseccion(anterior, posible_nueva):
+def hay_interseccion(anterior: tuple[int, int], posible_nueva: tuple[int, int]) -> bool:
     return posible_nueva[0] < anterior[1]

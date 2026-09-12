@@ -19,11 +19,11 @@
 # o si son miles de productos con precios diferentes
 
 
-def precios_inflacion(R: list[int]) -> int:
+def precios_inflacion(r: list[int]) -> int:
     monto = 0
-    j = 0
-    precios_ordenados = sorted(R, reverse=True)  # O(n log n)
+    dia = 0
+    precios_ordenados = sorted(r, reverse=True)  # O(n log n)
     for precio_producto in precios_ordenados:  # O(n)
-        monto += precio_producto ** (j + 1)
-        j += 1
+        monto += precio_producto ** (dia + 1)
+        dia += 1
     return monto

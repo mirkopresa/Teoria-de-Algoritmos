@@ -24,22 +24,20 @@ import heapq
 
 # Cada elemento i de la forma (valor, peso)
 # Complejidad: O(n log n), siendo n la cantidad de elementos a evaluar
-def mochila(elementos: list[tuple[int, int]], W: int) -> list[tuple[int, int]]:
+def mochila(elementos: list[tuple[int, int]], w: int) -> list[tuple[int, int]]:
     resultado = []
     peso_actual = 0
     promedios = obtener_promedios(elementos)
     heapq.heapify(promedios)  # O(n)
     while len(promedios) > 0:  # O(n log n) desencolar en un heap n veces
         _, elemento = heapq.heappop(promedios)
-        if peso_actual + elemento[1] <= W:
+        if peso_actual + elemento[1] <= w:
             resultado.append(elemento)
             peso_actual += elemento[1]
     return resultado
 
 
-def obtener_promedios(
-    elementos: list[tuple[int, int]],
-) -> list[tuple[float, tuple[int, int]]]:
+def obtener_promedios(elementos: list[tuple[int, int]]) -> list[tuple[float, tuple[int, int]]]:
     promedios = []
     for valor, peso in elementos:
         promedios.append((-(valor / peso), (valor, peso)))
