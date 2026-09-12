@@ -29,6 +29,4 @@ def es_compatible(grafo, v, camino):
 
 
 def no_alcanza(indice, vertices, n):
-    if len(vertices) - indice < n:
-        return True
-    return False
+    return len(vertices) - indice < n
