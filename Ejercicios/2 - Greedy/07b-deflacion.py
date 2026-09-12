@@ -19,14 +19,13 @@
 # o si son miles de productos con precios diferentes
 
 
-def precios_deflacion(R: list[float]) -> float:
+def precios_deflacion(r: list[float]) -> float:
     monto = 0
     factor = 0.5
-    ordenado = sorted(R)
+    ordenado = sorted(r)
     for i in range(len(ordenado)):
         monto += ordenado[i]
         if i + 1 < len(ordenado):
             ordenado[i + 1] = ordenado[i + 1] * factor
-        i += 1
         factor *= 0.5
     return monto
