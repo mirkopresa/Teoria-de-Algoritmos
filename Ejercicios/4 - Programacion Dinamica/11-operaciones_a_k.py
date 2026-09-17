@@ -11,10 +11,11 @@
 # Devolver un arreglo de las operaciones a realizar en orden. En texto cada opción es 'mas1' o 'por2'
 
 # Ecuacion de recurrencia:
-# Caso par: min(operaciones_n[i - 1], operaciones_n[i // 2]) + 1
-# Caso impar: operaciones_n[i - 1] + 1
+# Caso par: operaciones[i] = min(operaciones_n[i - 1], operaciones_n[i // 2]) + 1
+# Caso impar: operaciones[i] = operaciones_n[i - 1] + 1
 
 
+# Complejidad temporal: O(k)
 def operaciones(k: int) -> list[str]:
     resultado = []
     if k == 0:
