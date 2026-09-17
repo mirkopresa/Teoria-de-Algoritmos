@@ -17,7 +17,7 @@
 
 # Complejidad: O(n log n)
 def cobertura(casas: list[int], r: int, k: int) -> list[int]:
-    resultado = []
+    resultado: list[int] = []
     ordenados = sorted(casas)
     i = 0
     while i < len(ordenados):

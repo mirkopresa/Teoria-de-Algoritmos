@@ -24,7 +24,7 @@ def juan_el_vago(trabajos: list[int]) -> list[int]:
         if trabajos[0] > trabajos[1]:
             return [0]
         return [1]
-    suma = [trabajos[0], max(trabajos[0], trabajos[1])]
+    suma: list[int] = [trabajos[0], max(trabajos[0], trabajos[1])]
     for i in range(2, len(trabajos), 1):
         suma.append(max(suma[i - 1], trabajos[i] + suma[i - 2]))
     return reconstruir(suma)
@@ -32,7 +32,7 @@ def juan_el_vago(trabajos: list[int]) -> list[int]:
 
 def reconstruir(suma: list[int]) -> list[int]:
     i = len(suma) - 1
-    res = []
+    res: list[int] = []
     while i >= 0:
         if i == 0:
             # si estamos en el dia 0, si o si trabajamos

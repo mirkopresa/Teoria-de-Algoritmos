@@ -11,7 +11,7 @@ def mas_de_la_mitad_rec(arr: list[int]) -> int | None:
     if len(arr) == 1:
         return arr[0]
 
-    nuevo = []
+    nuevo: list[int] = []
     for i in range(0, len(arr) - 1, 2):
         if arr[i] == arr[i + 1]:
             nuevo.append(arr[i])

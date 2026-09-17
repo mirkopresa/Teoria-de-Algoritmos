@@ -21,9 +21,9 @@
 
 # Complejidad O(n log n), siendo n la cantidad de productos a ordenar
 def bolsas(capacidad: int, productos: list[int]) -> list[list[int]]:
-    resultado = []
+    resultado: list[list[int]] = []
     capacidad_actual = 0
-    ordenados = sorted(productos, reverse=True)
+    ordenados: list[int] = sorted(productos, reverse=True)
     inicio = 0
     fin = len(ordenados) - 1
     while inicio <= fin:
@@ -46,8 +46,8 @@ def bolsas(capacidad: int, productos: list[int]) -> list[list[int]]:
 
 # Complejidad O(n²)
 def bolsasffd(capacidad: int, productos: list[int]) -> list[list[int]]:
-    resultado = []
-    suma_pesos = []
+    resultado: list[list[int]] = []
+    suma_pesos: list[int] = []
     ordenados = sorted(productos, reverse=True)
     for producto in ordenados:
         i = 0

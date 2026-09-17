@@ -6,13 +6,13 @@ def merge_sort(arr: list[int]) -> list[int]:
     if len(arr) <= 1:
         return arr
     mitad = len(arr) // 2
-    mitad_izq = merge_sort(arr[:mitad])
-    mitad_der = merge_sort(arr[mitad:])
+    mitad_izq: list[int] = merge_sort(arr[:mitad])
+    mitad_der: list[int] = merge_sort(arr[mitad:])
     return merge(mitad_izq, mitad_der)
 
 
 def merge(izq: list[int], der: list[int]) -> list[int]:
-    resultado = []
+    resultado: list[int] = []
     i, j = 0, 0
     while i < len(izq) and j < len(der):
         if izq[i] >= der[j]:

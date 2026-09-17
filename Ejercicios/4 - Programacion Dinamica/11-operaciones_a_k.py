@@ -17,11 +17,11 @@
 
 # Complejidad temporal: O(k)
 def operaciones(k: int) -> list[str]:
-    resultado = []
+    resultado: list[str] = []
     if k == 0:
         return resultado
 
-    operaciones_n = [0]
+    operaciones_n: list[int] = [0]
     # Armar el arreglo con la cantidad de operaciones por numero
     for i in range(1, k + 1):
         if i % 2 == 0:

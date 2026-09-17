@@ -40,9 +40,9 @@ def lunatico(ganancias: list[int]) -> list[int]:
         return [2]
 
     # Robamos la primera casa (y no la ultima), y calculamos la ganancia maxima sin contar la ultima
-    optimos_robar_primera = obtener_optimo(ganancias, 0)
+    optimos_robar_primera: list[int] = obtener_optimo(ganancias, 0)
     # No robamos la primera casa (y tenemos la ultima como posible a robar) y calculamos la ganancia maxima contando la ultima
-    optimos_no_robar_primera = obtener_optimo(ganancias, 1)
+    optimos_no_robar_primera: list[int] = obtener_optimo(ganancias, 1)
 
     if optimos_robar_primera[-1] > optimos_no_robar_primera[-1]:
         return reconstruir(optimos_robar_primera, 0)
@@ -50,7 +50,7 @@ def lunatico(ganancias: list[int]) -> list[int]:
 
 
 def obtener_optimo(ganancias: list[int], desfase: int) -> list[int]:
-    optimos = [ganancias[0 + desfase], max(ganancias[0 + desfase], ganancias[1 + desfase])]
+    optimos: list[int] = [ganancias[0 + desfase], max(ganancias[0 + desfase], ganancias[1 + desfase])]
     for i in range(2, len(ganancias) - 1):
         optimos.append(max(optimos[i - 1], ganancias[i + desfase] + optimos[i - 2]))
     return optimos
@@ -58,7 +58,7 @@ def obtener_optimo(ganancias: list[int], desfase: int) -> list[int]:
 
 def reconstruir(optimos: list[int], desfase: int) -> list[int]:
     i = len(optimos) - 1
-    resultado = []
+    resultado: list[int] = []
     while i >= 0:
         if i == 0:
             resultado.append(i + desfase)

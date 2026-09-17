@@ -23,7 +23,7 @@
 # es una reversion del problema de scheduling
 # pedidos: lista de tuplas con (km inicio, km fin)
 def asignar_mafias(pedidos: list[tuple[int, int]]) -> list[tuple[int, int]]:
-    resultado = []
+    resultado: list[tuple[int, int]] = []
     ordenados = sorted(pedidos, key=lambda x: x[1])
     for rango in ordenados:
         if len(resultado) == 0 or not hay_interseccion(resultado[-1], rango):

@@ -15,7 +15,7 @@
 
 
 def charlas(horarios: list[tuple[int, int]]) -> list[tuple[int, int]]:
-    resultado = []
+    resultado: list[tuple[int, int]] = []
     # ordenadas de menor a mayor por fin (O(n log n))
     ordenado = sorted(horarios)
     for charla in ordenado:  # O(n)

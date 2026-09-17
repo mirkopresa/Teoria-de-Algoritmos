@@ -12,7 +12,7 @@ def mas_de_dos_tercios_rec(arr: list[int]) -> int | None:
     if len(arr) == 1:
         return arr[0]
 
-    nuevo = []
+    nuevo: list[int] = []
     for i in range(0, len(arr) - 2, 3):
         if arr[i] == arr[i + 1] and arr[i] == arr[i + 2]:
             nuevo.append(arr[i])

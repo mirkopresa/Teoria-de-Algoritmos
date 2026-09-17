@@ -26,7 +26,7 @@
 
 # forma entendible
 def cambio(monedas: list[int], monto: int) -> list[int]:
-    resultado = []
+    resultado: list[int] = []
     i = len(monedas) - 1
     while i >= 0 and monto > 0:
         if monto - monedas[i] < 0:
