@@ -1,0 +1,21 @@
+Explicar para cada uno de los siguientes casos, qué modificaciones se deben aplicar sobre una red para convertirla en una red de flujo apta para la utilización del algoritmo de Ford-Fulkerson.
+
+a. En la red existen bucles.
+
+b. En la red hay ciclos de dos vértices (aristas antiparalelas).
+
+c. En la red hay más de una fuente.
+
+d. En la red hay más de un sumidero.
+
+Respuesta a.
+Eliminamos los bucles (no aportan nada)
+
+Respuesta b.
+Desarmamos las aristas antiparalelas agregando un vertice intermedio en la arista de entrada o salida
+
+Respuesta c. 
+Crear una super fuente que les de flujo infinito al resto de fuentes
+
+Respuesta d. 
+Crear un super sumidero que reciba infinito flujo del resto de sumideros
