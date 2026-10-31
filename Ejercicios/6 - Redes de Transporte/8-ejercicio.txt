@@ -1,0 +1,3 @@
+¿Cuál es la relación entre el flujo máximo de una red, y un corte mínimo que separe su fuente y sumidero?
+
+Respuesta: La sumatoria del peso de las aristas pertenecientes al corte minimo suman el flujo maximo de una red
