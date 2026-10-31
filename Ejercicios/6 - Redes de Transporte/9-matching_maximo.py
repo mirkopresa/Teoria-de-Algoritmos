@@ -16,7 +16,7 @@ def matching_maximo(grafo: Grafo) -> list:
     grafo_flujo, s, t = crear_grafo_flujo(grafo)
     flujos = flujo(grafo_flujo, s, t)  # type: ignore hacer de cuenta que esta implementado FF
     resultado = []
-    for adyacente in grafo_flujo.adyacentes(t):
+    for adyacente in grafo_flujo.adyacentes(s):
         if flujos[(adyacente, t)] == 1:
             for w in grafo_flujo.adyacentes(adyacente):
                 if flujos[(w, adyacente)] == 1:
@@ -25,11 +25,11 @@ def matching_maximo(grafo: Grafo) -> list:
 
 
 def crear_grafo_flujo(grafo: Grafo) -> tuple[Grafo, str, str]:
-    grafo = Grafo(es_dirigido=True, vertices_init=grafo.obtener_vertices())
+    grafo_red = Grafo(es_dirigido=True, vertices_init=grafo.obtener_vertices())
     super_fuente = "super_fuente"
     super_sumidero = "super_sumidero"
-    grafo.agregar_vertice(super_fuente)
-    grafo.agregar_vertice(super_sumidero)
+    grafo_red.agregar_vertice(super_fuente)
+    grafo_red.agregar_vertice(super_sumidero)
     aleatorio = grafo.vertice_aleatorio()
     orden = bfs(grafo, aleatorio)
     visitados = set()
@@ -37,16 +37,16 @@ def crear_grafo_flujo(grafo: Grafo) -> tuple[Grafo, str, str]:
         for w in grafo.adyacentes(v):
             if w not in visitados:
                 if orden[v] == 0:
-                    grafo.agregar_arista(v, w, 1)
+                    grafo_red.agregar_arista(v, w, 1)
                 else:
-                    grafo.agregar_arista(w, v, 1)
+                    grafo_red.agregar_arista(w, v, 1)
         visitados.add(v)
     for v in grafo:
         if orden[v] == 0:
-            grafo.agregar_arista("super_fuente", v, 1)
+            grafo_red.agregar_arista("super_fuente", v, 1)
         else:
-            grafo.agregar_arista(v, "super_sumidero", 1)
-    return grafo, super_fuente, super_sumidero
+            grafo_red.agregar_arista(v, "super_sumidero", 1)
+    return grafo_red, super_fuente, super_sumidero
 
 
 def bfs(grafo: Grafo, origen: str) -> dict:
