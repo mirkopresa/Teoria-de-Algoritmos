@@ -14,8 +14,7 @@
 # Obtener la red tiene de costo O(V + E), luego chequear si a una luz le llego flujo tiene de complejidad O(V), y obtener la asignacion
 # de interruptores con luces tiene por complejidad O(V + E), ya que por cada interruptor, vemos todas sus aristas
 # Por ultimo el algoritmo de Ford Fulkerson implementado con BFS en este caso tendra de complejidad O(V * E), debido a que
-# todas las aristas tienen capacidad 1, entonces el flujo esta acotado por la variable n, y por cada iteracion, este aumentaria en 1
-# hasta llegar a n, y como maximo hay n vertices
+# todas las aristas tienen capacidad 1, entonces el flujo esta acotado por la cantidad de aristas y la complejidad se termina reduciendo
 # Reemplazando en la variable de entrada, nos queda O(V * E) = O(n³)
 def ergonomicidad(interruptores: list[str], luces: list[str]) -> dict | None:
     red, s, t = crear_red(interruptores, luces)
